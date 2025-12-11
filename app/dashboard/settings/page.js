@@ -132,7 +132,7 @@ export default function Settings() {
         )}
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 space-y-8">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 space-y-8 text-black">
           {/* Basic Info Section */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2 pb-4 border-b border-gray-200">

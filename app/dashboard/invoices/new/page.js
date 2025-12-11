@@ -161,7 +161,7 @@ export default function NewInvoice() {
           <p className="mt-1 text-sm text-gray-600">Generate a new invoice for your customer</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 text-black">
           {/* Customer Selection */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Customer Details</h2>
