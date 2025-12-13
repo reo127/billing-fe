@@ -15,15 +15,28 @@ import {
   HiX,
   HiChevronLeft,
   HiChevronRight,
-  HiLogout
+  HiLogout,
+  HiShoppingCart,
+  HiReceiptRefund,
+  HiTruck,
+  HiUserGroup,
+  HiViewGrid,
+  HiCurrencyRupee,
+  HiChartBar
 } from 'react-icons/hi';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HiHome },
   { name: 'New Invoice', href: '/dashboard/invoices/new', icon: HiDocumentAdd },
   { name: 'Invoices', href: '/dashboard/invoices', icon: HiDocumentText },
+  { name: 'Sales Returns', href: '/dashboard/sales-returns', icon: HiReceiptRefund },
+  { name: 'Purchases', href: '/dashboard/purchases', icon: HiShoppingCart },
+  { name: 'Purchase Returns', href: '/dashboard/purchase-returns', icon: HiReceiptRefund },
+  { name: 'Suppliers', href: '/dashboard/suppliers', icon: HiTruck },
+  { name: 'Inventory', href: '/dashboard/inventory', icon: HiViewGrid },
   { name: 'Products', href: '/dashboard/products', icon: HiCube },
   { name: 'Customers', href: '/dashboard/customers', icon: HiUsers },
+  { name: 'Expenses', href: '/dashboard/expenses', icon: HiCurrencyRupee },
   { name: 'Settings', href: '/dashboard/settings', icon: HiCog },
 ];
 
