@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "MediStore - Billing Software",
-  description: "Professional billing software for medical stores",
+  title: "Billing Software",
+  description: "Professional billing software for your business",
 };
 
 export default function RootLayout({ children }) {

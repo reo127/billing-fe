@@ -77,6 +77,37 @@ export default function ReportsPage() {
     if (format === 'excel') {
       exportToExcel();
     }
+
+    if (format === 'json') {
+      exportToJSON();
+    }
+  };
+
+  const exportToJSON = () => {
+    const reportName = tabs.find(t => t.id === activeTab)?.name || 'Report';
+    const dateStr = `${dateRange.startDate}_to_${dateRange.endDate}`;
+
+    const jsonData = {
+      reportType: reportName,
+      reportId: activeTab,
+      generatedAt: new Date().toISOString(),
+      period: {
+        startDate: dateRange.startDate,
+        endDate: dateRange.endDate
+      },
+      data: reportData
+    };
+
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${reportName}_${dateStr}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const exportToExcel = () => {
@@ -259,6 +290,13 @@ export default function ReportsPage() {
             <p className="text-gray-500 mt-1">Generate and export GST compliance reports</p>
           </div>
           <div className="flex gap-3">
+            <button
+              onClick={() => handleExport('json')}
+              className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 flex items-center gap-2"
+            >
+              <HiDownload className="w-5 h-5" />
+              Export JSON
+            </button>
             <button
               onClick={() => handleExport('excel')}
               className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center gap-2"

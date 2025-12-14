@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import { shopAPI } from '@/utils/api';
 import {
   HiHome,
   HiDocumentAdd,
@@ -44,8 +45,23 @@ const navigation = [
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [shopSettings, setShopSettings] = useState(null);
   const pathname = usePathname();
   const { user, logout } = useAuth();
+
+  useEffect(() => {
+    const loadShopSettings = async () => {
+      try {
+        const data = await shopAPI.get();
+        setShopSettings(data);
+      } catch (error) {
+        console.error('Error loading shop settings:', error);
+      }
+    };
+    loadShopSettings();
+  }, []);
+
+  const shopName = shopSettings?.shopName || 'Billing Software';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -60,11 +76,11 @@ export default function DashboardLayout({ children }) {
           <div className="flex items-center justify-between h-16 px-6 bg-emerald-600 relative overflow-hidden">
             {!collapsed && (
               <h1 className="text-2xl font-bold text-white relative z-10 tracking-tight">
-                MediStore<span className="text-emerald-200">.</span>
+                {shopName}<span className="text-emerald-200">.</span>
               </h1>
             )}
             {collapsed && (
-              <h1 className="text-2xl font-bold text-white relative z-10">M</h1>
+              <h1 className="text-2xl font-bold text-white relative z-10">{shopName?.[0]?.toUpperCase() || 'B'}</h1>
             )}
             <button
               onClick={() => setCollapsed(!collapsed)}
@@ -158,7 +174,7 @@ export default function DashboardLayout({ children }) {
           <div className="relative flex flex-col w-80 h-full bg-white shadow-2xl transform transition-transform duration-300">
             <div className="flex items-center justify-between h-16 px-6 bg-emerald-600">
               <h1 className="text-2xl font-bold text-white tracking-tight">
-                MediStore<span className="text-emerald-200">.</span>
+                {shopName}<span className="text-emerald-200">.</span>
               </h1>
               <button
                 onClick={() => setSidebarOpen(false)}
@@ -229,7 +245,7 @@ export default function DashboardLayout({ children }) {
             <HiMenu className="w-6 h-6" />
           </button>
           <h1 className="text-xl font-bold text-emerald-600">
-            MediStore
+            {shopName}
           </h1>
           <div className="w-10"></div>
         </div>
