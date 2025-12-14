@@ -37,6 +37,7 @@ const navigation = [
   { name: 'Products', href: '/dashboard/products', icon: HiCube },
   { name: 'Customers', href: '/dashboard/customers', icon: HiUsers },
   { name: 'Expenses', href: '/dashboard/expenses', icon: HiCurrencyRupee },
+  { name: 'Reports', href: '/dashboard/reports', icon: HiChartBar },
   { name: 'Settings', href: '/dashboard/settings', icon: HiCog },
 ];
 

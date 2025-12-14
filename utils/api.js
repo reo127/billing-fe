@@ -245,6 +245,18 @@ export const reportsAPI = {
     return apiCall(`/reports/gstr3b?${query}`);
   },
 
+  // Tax Summary
+  getTaxSummary: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiCall(`/reports/tax-summary?${query}`);
+  },
+
+  // HSN Summary
+  getHSNSummary: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiCall(`/reports/hsn-summary?${query}`);
+  },
+
   // P&L
   getProfitLoss: (params = {}) => {
     const query = new URLSearchParams(params).toString();
