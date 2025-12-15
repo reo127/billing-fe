@@ -3,13 +3,13 @@
 
 export const APP_CONFIG = {
   // Your shop/business name
-  shopName: 'MediStore',
+  shopName: 'Digibilling-Software',
 
   // App title (shown in browser tab)
-  appTitle: 'MediStore - Billing Software',
+  appTitle: 'Digibilling-Software',
 
   // App description
-  appDescription: 'Professional billing software for medical stores',
+  appDescription: 'Professional billing software for all Businesses',
 
   // Footer copyright year
   copyrightYear: new Date().getFullYear(),
