@@ -137,15 +137,6 @@ export default function Login() {
               )}
             </button>
           </form>
-
-          <div className="mt-8 pt-6 border-t border-gray-200 text-center">
-            <p className="text-sm text-gray-600">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors">
-                Sign up
-              </Link>
-            </p>
-          </div>
         </div>
 
         {/* Footer */}
